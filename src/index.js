@@ -70,7 +70,7 @@ async function searchImage(event) {
     Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
 
     query = inputValue;
-    reach_end = false;
+    reachEnd = false;
     isGalleryEnded = false;
     page = 1;
 
@@ -93,7 +93,7 @@ async function searchImage(event) {
 searchForm.addEventListener('submit', searchImage);
 addEventListener(
   'scroll',
-  
+
   throttle(() => {
     if (window.scrollY + innerHeight >= galleryBox.scrollHeight) {
       addImage();
