@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export async function fetchImages(value, page = 1){
     const searchParams = new URLSearchParams({
       key: '36895076-5934d2f855119bc6ea2b7e918',

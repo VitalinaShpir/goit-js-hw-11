@@ -1,7 +1,8 @@
 import { fetchImages } from './js/fetchImg';
 import {createImageList} from './js/createImgList';
 import Notiflix from 'notiflix';
-import axios from 'axios';
+import { throttle } from 'lodash';
+import SimpleLightbox from "simplelightbox";
 
 
 const searchForm = document.querySelector('#search-form');
@@ -43,6 +44,12 @@ async function addImage() {
     Notiflix.Notify.failure('Oops! Something went wrong');
     console.error(error);
   }
+};
+
+function preventItemsClick(items){
+    document.querySelectorAll(items).forEach(item => {
+      item.addEventListener('click', event => event.preventDefault());
+    });
 }
 
 async function searchImage(event) {
@@ -86,7 +93,7 @@ async function searchImage(event) {
 searchForm.addEventListener('submit', searchImage);
 addEventListener(
   'scroll',
-  _.throttle(() => {
+  throttle(() => {
     if (window.scrollY + innerHeight >= galleryBox.scrollHeight) {
       addImage();
       reachEnd = true;
@@ -97,3 +104,13 @@ addEventListener(
 
 
 console.log('hello')
+
+function initSliderLightBox() {
+    const gallery = new SimpleLightbox('.gallery a', {
+       captionsData: 'alt',
+       captionDelay: 250,
+     });
+   
+     return gallery;
+   }
+   
