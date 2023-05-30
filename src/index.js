@@ -93,6 +93,7 @@ async function searchImage(event) {
 searchForm.addEventListener('submit', searchImage);
 addEventListener(
   'scroll',
+  
   throttle(() => {
     if (window.scrollY + innerHeight >= galleryBox.scrollHeight) {
       addImage();
