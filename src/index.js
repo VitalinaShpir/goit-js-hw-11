@@ -37,7 +37,7 @@ async function addImage() {
       galleryBox.insertAdjacentHTML('beforeend', links);
       onItemsClick('.gallery__link');
 
-      gallery.refresh();
+      // gallery.refresh();
       page += 1;
     }
   } catch (error) {
