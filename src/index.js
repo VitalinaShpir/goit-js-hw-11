@@ -2,16 +2,20 @@ import { fetchImages } from './js/fetchImg';
 import {createImageList} from './js/createImgList';
 import Notiflix from 'notiflix';
 import { throttle } from 'lodash';
-import SimpleLightbox from "simplelightbox";
+// import SimpleLightbox from "simplelightbox";
 
 
 const searchForm = document.querySelector('#search-form');
 const searchFormInput = document.querySelector('#search-form input');
 const galleryBox = document.querySelector('.gallery');
 const loadMoreButton = document.querySelector('.load-more');
+const searchButton = document.querySelector('.search-button');
+
+console.log(searchFormInput)
 
 
 loadMoreButton.style.display = 'none';
+// searchButton.disabled = true;
 
 let gallery;
 let page = 1;
@@ -36,6 +40,7 @@ async function addImage() {
       const links = createImageList(data.hits);
       galleryBox.insertAdjacentHTML('beforeend', links);
       onItemsClick('.gallery__link');
+    
 
       // gallery.refresh();
       page += 1;
@@ -111,4 +116,3 @@ addEventListener(
 
    console.log('hel111lo')
 
-   console.log('sfdv sfgr bvfhmhyil')
