@@ -2,7 +2,7 @@ export function createImageList(images) {
     return images
       .map(image => {
         return `
-              <a href="${image.webformatURL}" class="gallery__link flex-container-item">
+              <a href="${image.webformatURL}" class="gallery__link">
                   <img src="${image.webformatURL}" alt="${image.tags}" loading="lazy" data-source="${image.largeImageURL}" />
                   <div class="info">
                       <p class="info-item">

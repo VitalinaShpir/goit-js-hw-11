@@ -12,6 +12,7 @@ const loadMoreButton = document.querySelector('.load-more');
 
 
 loadMoreButton.style.display = 'none';
+
 let gallery;
 let page = 1;
 let query = '';
@@ -34,10 +35,9 @@ async function addImage() {
 
       const links = createImageList(data.hits);
       galleryBox.insertAdjacentHTML('beforeend', links);
-      preventItemsClick('.gallery__link');
+      onItemsClick('.gallery__link');
 
       gallery.refresh();
-
       page += 1;
     }
   } catch (error) {
@@ -46,7 +46,7 @@ async function addImage() {
   }
 };
 
-function preventItemsClick(items){
+function onItemsClick(items){
     document.querySelectorAll(items).forEach(item => {
       item.addEventListener('click', event => event.preventDefault());
     });
@@ -81,7 +81,7 @@ async function searchImage(event) {
     const links = createImageList(data.hits);
 
     galleryBox.innerHTML = links;
-    preventItemsClick('.gallery__link');
+    onItemsClick('.gallery__link');
 
     gallery = initSliderLightBox();
   } catch (error) {
@@ -92,9 +92,7 @@ async function searchImage(event) {
 
 searchForm.addEventListener('submit', searchImage);
 addEventListener(
-  'scroll',
-
-  throttle(() => {
+  'scroll', throttle(() => {
     if (window.scrollY + innerHeight >= galleryBox.scrollHeight) {
       addImage();
       reachEnd = true;
@@ -107,10 +105,7 @@ addEventListener(
 console.log('hello')
 
 function initSliderLightBox() {
-    const gallery = new SimpleLightbox('.gallery a', {
-       captionsData: 'alt',
-       captionDelay: 250,
-     });
+  const gallery = new SimpleLightbox(".gallery", {captionsData: 'alt', captionDelay: 250 });
    
      return gallery;
    }
