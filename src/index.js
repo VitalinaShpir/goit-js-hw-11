@@ -79,11 +79,10 @@ async function searchImage(event) {
     }
 
     const links = createImageList(data.hits);
-
     galleryBox.innerHTML = links;
     onItemsClick('.gallery__link');
 
-    gallery = initSliderLightBox();
+      // gallery = initSliderLightBox();
   } catch (error) {
     Notiflix.Notify.failure('Oops! Something went wrong');
     console.error(error);
@@ -101,12 +100,15 @@ addEventListener(
 );
 
 
-
-console.log('hello')
-
-function initSliderLightBox() {
-  const gallery = new SimpleLightbox(".gallery", {captionsData: 'alt', captionDelay: 250 });
+// function initSliderLightBox() {
+//   const gallery = new SimpleLightbox("#gallery", {captionsData: 'alt', captionDelay: 250 });
    
-     return gallery;
-   }
+//      return gallery;
+//    }
    
+
+
+
+   console.log('hel111lo')
+
+   console.log('sfdv sfgr bvfhmhyil')
