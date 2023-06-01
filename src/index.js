@@ -2,7 +2,8 @@ import { fetchImages } from './js/fetchImg';
 import {createImageList} from './js/createImgList';
 import Notiflix from 'notiflix';
 import { throttle } from 'lodash';
-// import SimpleLightbox from "simplelightbox";
+import SimpleLightbox from "simplelightbox";
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 
 const searchForm = document.querySelector('#search-form');
@@ -42,7 +43,7 @@ async function addImage() {
       onItemsClick('.gallery__link');
     
 
-      // gallery.refresh();
+      gallery.refresh();
       page += 1;
     }
   } catch (error) {
@@ -87,7 +88,7 @@ async function searchImage(event) {
     galleryBox.innerHTML = links;
     onItemsClick('.gallery__link');
 
-      // gallery = initSliderLightBox();
+      gallery = initSliderLightBox();
   } catch (error) {
     Notiflix.Notify.failure('Oops! Something went wrong');
     console.error(error);
@@ -105,11 +106,11 @@ addEventListener(
 );
 
 
-// function initSliderLightBox() {
-//   const gallery = new SimpleLightbox("#gallery", {captionsData: 'alt', captionDelay: 250 });
+function initSliderLightBox() {
+  const gallery = new SimpleLightbox("#gallery", {captionsData: 'alt', captionDelay: 250 });
    
-//      return gallery;
-//    }
+     return gallery;
+   }
    
 
 
