@@ -12,8 +12,6 @@ const galleryBox = document.querySelector('.gallery');
 const loadMoreButton = document.querySelector('.load-more');
 const searchButton = document.querySelector('.search-button');
 
-console.log(searchFormInput)
-
 
 loadMoreButton.style.display = 'none';
 // searchButton.disabled = true;
@@ -41,8 +39,6 @@ async function addImage() {
       const links = createImageList(data.hits);
       galleryBox.insertAdjacentHTML('beforeend', links);
       onItemsClick('.gallery__link');
-    
-
       gallery.refresh();
       page += 1;
     }
@@ -113,7 +109,4 @@ function initSliderLightBox() {
    }
    
 
-
-
-   console.log('hel111lo')
 
