@@ -10,7 +10,7 @@ const searchForm = document.querySelector('#search-form');
 const searchFormInput = document.querySelector('#search-form input');
 const galleryBox = document.querySelector('.gallery');
 const loadMoreButton = document.querySelector('.load-more');
-const searchButton = document.querySelector('.search-button');
+// const searchButton = document.querySelector('.search-button');
 
 
 loadMoreButton.style.display = 'none';
