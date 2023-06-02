@@ -57,6 +57,11 @@ function onItemsClick(items){
 async function searchImage(event) {
   event.preventDefault();
 
+  const searchQuery = event.currentTarget.elements.searchQuery.value;
+  if (searchQuery.trim() === '') {
+    return; 
+  }
+
   try {
     const inputValue = searchFormInput.value.trim();
     const response = await fetchImages(inputValue);
